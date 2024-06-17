@@ -27,7 +27,7 @@ local get_main_node = function(cursor)
   local start_row = node:start()
   local end_row = node:end_()
   while (parent ~= nil and parent ~= root and parent:start() == start_row) do
-    if parent:type() == 'body' then
+    if parent:type() == 'block' then
       break
     end
     node = parent
