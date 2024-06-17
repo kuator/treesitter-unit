@@ -26,7 +26,10 @@ local get_main_node = function(cursor)
   local root = ts_utils.get_root_for_node(node)
   local start_row = node:start()
   local end_row = node:end_()
-  while (parent ~= nil and parent ~= root and parent:start() == start_row and end_row == parent:end_()) do
+  while (parent ~= nil and parent ~= root and parent:start() == start_row) do
+    if parent:type() == 'body' then
+      break
+    end
     node = parent
     parent = node:parent()
   end
