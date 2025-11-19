@@ -14,7 +14,7 @@ local function get_node_for_cursor(cursor)
   if ok and parser then
     parser:parse()
   else
-      vim.notify("treesitter-unit: No parser found for filetype " .. filetype)
+      vim.notify("treesitter-unit: No parser found for the current filetype")
       return
   end
   local root_tree = parser:parse()[1]
